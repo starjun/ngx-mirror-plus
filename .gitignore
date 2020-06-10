@@ -1,0 +1,13 @@
+celery.*
+*.pyc
+*.swp
+*.log
+*.bak
+*.txt
+*.out
+!.gitignore
+!data/*.txt
+!lib/bugscan/dummy/*.pyc
+!status.txt
+!requirements.txt
+.idea

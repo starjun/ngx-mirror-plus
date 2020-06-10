@@ -1,0 +1,95 @@
+
+{
+
+    "debug_Mod" : false,
+
+    "baseDir" : "/opt/openresty/mirror-ngx/",
+
+    "jsonPath":"/opt/openresty/mirror-ngx/conf_json/",
+
+    "logPath" : "/opt/openresty/mirror-ngx/logs/",
+
+    "autoSync":{
+        "state":"Master",
+        "timeAt":10,
+        "master":"127.0.0.1",
+        "slaves": []
+    },
+
+    "kafka_Mod" : {
+        "state":"off",
+        "producer_type":"async",
+	    "topic":"request",
+        "key":"base_msg",
+        "broker_list":[
+            { "host" : "192.168.0.1", "port" : 9090 }
+        ]
+    },
+
+    "debug_log_Mod":{
+        "state":"on",
+        "logpath":"/tmp/debug.log"
+    },
+
+    "statistics_Mod" :{
+        "state":"off",
+        "mysql" : {
+            "host" : "192.168.0.1",
+            "port" : 3306,
+            "database" : "x",
+            "user" : "x",
+            "password" : "x",
+            "charset" : "utf8"
+        },
+
+        "min_num": 10,
+        "exclude_urls": [
+                            [[".css",".js",".flv",".swf",".woff",
+                             ".txt",".ttf",".svg",".eot",
+                             ".gif",".jpg",".png",".jpeg",".bmp",".ico",".webp"
+                            ],"reend_list"]
+                        ],
+        "match_hosts": {
+            "www.lixiang.com":true,
+            "wiki.it.chehejia.com":true,
+            "api-web.lixiang.com":true,
+            "api-app.lixiang.com":true,
+            "api-hmi.chehejia.com":true,
+            "api-boss-public.chehejia.com":true,
+            "openapi.chehejia.com":true,
+            "amp.chehejia.com":true
+        }
+    },
+
+    "passive_Mod" : {
+        "state":"on",
+        "redis_Mod":{
+            "state":"off",
+            "ip":"127.0.0.1",
+            "Port":6379,
+            "Password":"xxxxxxxxx"
+        },
+        "mysql" : {
+            "host" : "192.168.47.105",
+            "port" : 3306,
+            "database" : "x",
+            "user" : "x",
+            "password" : "x",
+            "charset" : "utf8"
+        },
+        "exclude_urls": [
+            [[".css",".js",".flv",".swf",".woff",
+             ".txt",".ttf",".svg",".eot",
+             ".gif",".jpg",".png",".jpeg",".bmp",".ico",".webp"
+            ],"reend_list"]
+        ],
+        "exclude_ips": {
+            "192.168.0.1":true,
+            "192.168.0.2":true,
+            "192.168.0.3":true,
+            "192.168.0.4":true,
+            "192.168.0.5":true,
+            "192.168.0.6":true
+        }
+    }
+}
